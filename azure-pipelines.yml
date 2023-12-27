@@ -1,16 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - master
-jobs:
-- job: 'test_basic'
-  pool:
-    name: Default
-  steps:
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        # Write your commands here
-        
-        echo 'Hello world' > file01
-        cat file01
-      workingDirectory: '/tmp'
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: Bash@3
+  inputs:
+    filePath: '- task: ALOpsAppCompiler@2   inputs:     artifactversion: ''10''     artifacttype: ''Sandbox''     artifactcountry: ''Germany''     appversiontemplate: ''1.0.0.*''     appfilenametemplate: ''%APP_PUBLISHER%_%APP_NAME%_%APP_VERSION%_%BC_TYPE%_%BC_VERSION%_%BC_COUNTRY%.app''     alcodeanalyzer: ''CodeCop,UICop'''
+    arguments: '- task: ALOpsAppCompiler@2   inputs:     artifactversion: ''10''     artifacttype: ''Sandbox''     artifactcountry: ''Germany''     appversiontemplate: ''1.0.0.*''     appfilenametemplate: ''%APP_PUBLISHER%_%APP_NAME%_%APP_VERSION%_%BC_TYPE%_%BC_VERSION%_%BC_COUNTRY%.app''     alcodeanalyzer: ''CodeCop,UICop'''
